@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tasks/', include('donebox.tasks.urls')),
 ]
