@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Task
 
@@ -29,5 +27,4 @@ def complete(request, task_id):
     task.is_completed = True
     task.save()
 
-    return HttpResponseRedirect(
-        reverse('tasks:detail', args=(task.id,)))
+    return redirect('tasks:detail', task_id=task.id)
