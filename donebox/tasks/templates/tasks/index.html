@@ -3,3 +3,9 @@
         <li><a href="{% url 'tasks:detail' task.id %}">{{ task.title }}</a></li>
     {% endfor%}
 </ul>
+
+<form action="{% url 'tasks:register' %}" method="post">
+    {% csrf_token %}
+    {{ task_form.as_p }}
+    <input type="submit" value="Save">
+</form>
