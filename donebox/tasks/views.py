@@ -43,7 +43,6 @@ def register(request):
 def complete(request, task_id):
     task = get_object_or_404(Task, id=task_id)
 
-    task.is_completed = True
-    task.save()
+    task.complete()
 
     return redirect('tasks:detail', task_id=task.id)
